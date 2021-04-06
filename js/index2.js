@@ -20,12 +20,14 @@ navigator.geolocation.getCurrentPosition(function(position) {
 function success(pos) {
   var crd = pos.coords;
  
-  if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
+  navigator.geolocation.getCurrentPosition(function(position) {
     var print = document.getElementById('print'); 
-    console.log('Congratulation, you reach the target');
+    console.log(crd.longitude);
+     lat = crd.latitude;
+     long =  crd.longitude;
+    console.log(crd.latitude);
     print.innerText = "longitude: " + position.coords.longitude + "latitude: " + position.coords.latitude;
-    navigator.geolocation.clearWatch(id);
-  }
+});
 };
 
 function error(err) {
